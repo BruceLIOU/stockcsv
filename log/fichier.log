@@ -1,0 +1,4 @@
+[Sat, 07 Nov 2020 13:30:01] DELETE FROM llx_supplier_states WHERE TO_DAYS(now() ) - TO_DAYS(date) >=7
+[Sat, 07 Nov 2020 13:30:01] DELETE FROM llx_product_fournisseur_price WHERE fk_soc = 38
+[Sat, 07 Nov 2020 13:30:01] UPDATE llx_product_stock SET reel = 0 ,tms = now() WHERE fk_entrepot = 1
+[Sat, 07 Nov 2020 13:30:01] REPLACE INTO llx_supplier_states (date, fk_supplier, state, process, details, productCreate, productUpdate, productError, user, hoursUpdate, duration, entity ) VALUES ( now(), '38', '1', '0', 'Pas de fichier csv trouv&eacute;','0','0','0', '4', '13:30:01','0.20907211303711' , '1')

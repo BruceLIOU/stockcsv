@@ -1,0 +1,250 @@
+Module100000Name = Stocks CSV
+Module100000Desc = Ventilation automatisée et manuelle des stocks des fournisseurs
+
+BRUMANAbout=<p>Ce module permet la ventilation des stocks de plusieurs fournisseurs de manière automatique (cron) et/ou manuelle.</p><p>Les fichiers CSV se situent dans le dossier documents de Dolibarr (sous ftp/stocks/).<br/><ul><li>Calcul clé EAN13</li><li>Vérification de la cohérence EAN-EAN</li><li>Formate les données avant traitement</li><li>Ajoute un préfixe sur les références produits fournisseurs</li><li>Calcul du prix de vente selon le prix d'achat le plus élevé</li><li>Création et MAJ de produit</li><li>Le module utilise les triggers</li><li>Traitement automatique et/ou manuel</li></ul></p>
+
+stockcsvSetup = Configuration du module Stocks CSV
+stockcsvAbout = A propos du module Stocks CSV
+
+stockcsv=Stocks CSV
+
+# MENU
+TopMenustockcsv=Stocks CSV
+
+# PARAMETRES
+LabelMappingDoli=Mapping Dolibarr & Fournisseurs
+Suppliers=Fournisseurs
+Warehouse=Entrepôts
+FolderFTP=Répertoire FTP
+Category=Catégories
+PrefRefSuppliers=Préfixe Réf.
+TypePrice=Type de prix
+SoldSuppliers=Remise (%%)
+LabelMappingCategory=Mapping catégorie
+CategoryDolibarr=Catégories Dolibarr
+MaskCSV=Masque CSV
+CategoryPrestashop=Catégories Prestashop
+
+add=Ajouter
+update=Mettre à jour
+
+VacancesPartenaires=Indisponibilités Partenaires
+WarehousePendingOrders=Entrepôt des commandes en cours
+TextHelpWarehousePendingOrders=Entrepôt "fictif" où sont stockés les quantités des produits des commandes en cours, pour la décrémentation des stocks.
+UserRobot=Utilisateur "Robot" pour le traitement automatique
+UpdateProductSellPriceMinTo10=Remplace les prix de vente à 10 euros pour les produits dont le prix d'achat est inférieur ou égal à :
+
+
+LabelTerms=Liste de termes à exclure dans le titre du produit
+Terms=Termes
+UploadTerms=Ou importer une liste depuis un fichier CSV
+TermsAlreadyExcludes= Termes déjà exclus
+TermsExist = Ce terme a déjà été entré
+
+LabelEAN=Liste des produits à exclure
+EAN=EAN
+UploadEAN=Ou importer une liste depuis un fichier CSV
+
+LabelBddPrestashop=Base de données Prestashop
+Server=Serveur
+Port=Port
+Login=Login
+Password=Mot de passe
+PrefixBdd=Préfixe de la Base
+IdTransport=ID transporteur (Colissimo)
+
+LabelParamOthers=Paramètres divers
+Coef=Coef. marge prix de vente		
+StockTampon=Stock tampon
+DecremProduct=Décrémentation automatique des produits non commandés
+PriceAchatLow=Prix achat HT minimum
+
+PlaceHolderFTP=/documents/ftp/stocks/cahors/
+Add=Ajouter
+Del=Supprimer
+PlaceHolderPrefix={CAHO}
+PlaceHolderSoldSupplier=5
+PlaceHolderMask=ExtractArt_{aaaammdd}
+PlaceHolderCategoryPS=9
+PlaceHolderTerms=Un argument par ligne
+PlaceHolderEAN=Un EAN par ligne
+
+PlaceHolderCoef=2
+PlaceHolderST=2
+PlaceHolderPA=1
+
+SetupSaved=Vos paramètres ont bien été enregistrés
+Error=Vos paramètres n'ont pas été enregistrés
+
+DownloadExempleExclude=Télécharger un exemple de fichiers
+
+ErrorEAN=Exclure automatiquement les produits en erreurs de traitement
+NBDAYS=Nombre de jours, en cas d'absence du fichier CSV, avant suppression des produits
+CSVnotPresent=Vider les stocks du partenaires au delà du nombre de jours
+
+States=État des traitements
+Process=Traitement manuel
+
+See=Voir
+Delete=Supprimer
+
+States=États
+MajProducts=Nombre de produits mis à jour
+CreateProducts=Nombre de produits créés
+ErrorProducts=Nombre de produits en erreur
+
+DateState=DATE
+ActionLog=ACTION
+
+TTC=TTC
+HT=HT
+
+
+
+#messagesHelpUsers
+TextHelpMappingSuppliers = Choisir le fournisseur
+TextHelpMappingWarehouse = Choisir l'entrepôt du fournisseur
+TextHelpMappingFolderFTP = Choisir le répertoire FTP des CSV du fournisseur
+TextHelpMappingMaskCSV = Indiquer le masque des fichiers CSV du fournisseur<br/><b>Exemple: ExtractArt_</b><br/>La suite du masque est composé de la date du jour sous la forme aaaammdd.csv
+TextHelpMappingCategory = Choisir la catégorie des produits du fournisseur
+TextHelpMappingPrefRefSuppliers = Indiquer le préfixe pour les références de produit (prix d'achat)<br/>Un tiret sera ajouté automatiquement dernière le préfixe<br/><b>Exemple:{CAHO}</b>
+TextHelpMappingTypePrice = Choisir le type de prix (HT ou TTC)
+TextHelpMappingSoldSuppliers = Indiquer la remise du fournisseur
+TextHelpMappingTva = Indiquer le taux de TVA du fournisseur
+
+TextHelpTerms=Liste de mots dans le nom du produit.<br/><b>Exemple: ASST, ASSORTIMENT</b>
+TextHelpEANS=Liste de EANS à exclure du traitement.<br/><b>Ce sont des produits à ne pas mettre en vente.</b>
+
+
+#messagesErreurSuccess
+
+InsertMappingSuccess = Le partenaire a été ajouté avec succès
+DuplicataInsertMapping = Le partenaire existe déjà dans le mapping
+RequiredFieldInsertMapping = Champ de mapping a insérer requis
+
+DeletedMappingSuccess = Le partenaire a été supprimé avec succès
+DeletedMappingFailed = Le partenaire n'a pas été supprimé
+
+UpdateMappingSuccess = Le partenaire a été modifié avec succès
+DuplicataUpdateMapping = La mise à jour du partenaire a échouée
+WrongDateFieldUpdateUnavailable = Mauvaise saisie des dates
+RequiredUpdateMappingField = Champ de mapping a modifier requis
+
+UpdateUnavailableSuccess = Mise à jour de l'indisponibilité réalisée avec succès
+DuplicataUpdateUnavailable = Duplication de l'indisponibilité
+RequiredUpdateUnavailableField = champs requis pour la mise à jour de l'indisponibilité
+
+InsertUnavailableSuccess = Insertion de l'indisponiblité réalisé avec succès
+DuplicataInsertUnavailable = Échec duplication de l'indisponibilité existante
+WrongDateFieldInsertUnavailable = Mauvaise date de l'indisponibilité
+RequiredInsertUnavailableField = Camps requis manquant pour l'indisponibilité
+
+
+DeletedUnavailableSuccess = Suppression de l'indisponiblité réalisé avec succès
+DeletedUnavailableFailed = Suppression de l'indisponiblité non effectuée
+
+ErrorRequestSql = Erreur SQL
+TableUnavailableEmpty = Table indisponibilité vide
+TableMappingEmpty = Table mapping vide
+TableConstEmpty = Table constantes vides
+
+#HolidaysPart
+
+DateStart = Date début
+DateEnd = Date fin
+Reason = Information
+TextHelpReason=<ul><li>Vacances</li><li>Inventaires</li><li>...</li></ul>
+TextHelpCoef=<b>ATTENTION</b><br/>En cliquant sur le bouton enregistrer, le prix de vente de tous les produits seront mis à jour.
+
+
+
+
+#ProcessPart
+
+supplierNbr = Fournisseur n°
+ChangmntDone = changements effectués 
+CreateDone = creations effectués 
+NoProduct = Pas de produit pour le partenaire n°
+NoFic = Pas de fichier csv trouvé pour le partenaire
+Unavailable = Indisponibibilité du partenaire
+LaunchAll = Lancer le traitement de tous les partenaires
+ConfirmLaunchAll=Confirmez-vous le lancement du traitement pour tous les partenaires ?
+ValidateLaunchAll=Validation du lancement global
+
+page_name=Paramètres du module Stocks CSV
+
+suppliers=Fournisseurs
+state=États
+pdtcreate=Produit(s) créé(s)
+pdtupdate=Produit(s) mis à jour
+pdterror=Produit(s) en erreur(s)
+timeProcess=Heure du traitement
+durationProcess=Durée du traitement
+Doneby=Fait par
+
+TraitementManuel=Traitement manuel
+
+ProductCsvPropre=Produit dans le csv "propre" :
+ProduitCreate=Produit(s) qui sont créé(s) :
+ProduitError=Produit(s) avec une création erronée :
+ProduitSucces=Produit(s) avec une modification réussie :
+
+MenuStockCSV=Stocks CSV
+
+UpdateConstantSuccess=Paramètres enregistrés avec succès
+DuplicataUpdateConstant=Paramètres dèja enregistrés en base de données
+RequiredUpdateConstantField=Paramètres requis manquants
+
+DuplicataInsertEAN=Duplication d'EAN en base de données
+
+DeletedTermSuccess=Terme à exclure supprimé
+DeletedTermFailed=Échec de la suppression du terme
+
+#Email
+MissingFile= Fichier manquant
+ErrorProcessAuto=Incident traitement CSV automatique - 
+ErrorEANToday=Ean erreur du jour
+SupplierUnavailable= Partenaire Indisponible
+Partner=Partenaire 
+Stocks0Unavailable= en période d'indisponibilité, stock remis à 0.
+StocksMissingToDay= stock remis à 0.
+
+NoFileSupplier=Pas de fichier pour le fournisseur
+NoFindCSV=Pas de fichier csv trouvé
+TotalProcessManuel=Total :
+getCSVMappingManuelSuccess=Traitement du partenaire terminé.
+
+InsertTermSuccess=Insertion du terme réalisé avec succès
+DuplicataInsertTerm=Duplication du terme
+RequiredInsertTerm=Champ requis pour l'ajout d'un terme
+
+HelloCSV=Bonjour,
+EANErrorPJ=Voici la liste (en pièce jointe) des EANS en erreur.
+
+Save=Enregistrer
+
+InsertEANSuccess=EAN enregistré avec succès
+DeletedEANSuccess=EAN non enregistré
+
+ListEanEnter=Liste d'EANS à soumettre
+Eanerrorthe=EAN en erreur le %s
+
+PrepareFile=Traitement du fichier stock
+FileStockError=Fichier stock absent de
+PreparaFileStockOf = Fichier stock de 
+FileSupplierUnavailable=Fichier stock du partenaire absent
+FileSupplierOf=Fichier du partenaire
+NotHere=absent
+DoneFile=traité
+prepareFileManuelError=Fichier stock absent !
+FileSupplierNotHere=Fichier stock absent de
+FileSupplierHere=Fichier stock traité de
+
+FileExist=Fichier CSV
+FileExistHere=Fichier stock présent
+FileExistNotHere=Fichier stock absent
+FileSize=Taille du fichier
+FileActions=Actions
+WARNING=ATTENTION
+FileStockExist=Fichier stock
+FileName=Nom du fichier

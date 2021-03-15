@@ -1,0 +1,218 @@
+Module100000Name=CSV Stocks
+Module100000Desc=Automated and manual vendor stock ventilation
+
+BRUMANAbout=<p>This module allows the inventory breakdown of several suppliers automatically (cron) and / or manually. </ p> <p> The CSV files are located in the documents folder of Dolibarr (under ftp / stocks /). <br/> <ul> <li> Key Calculation EAN13 </ li> <li> Consistency Check EAN-EAN </ li> <li> Formats the data before processing </ li> <li> Adds a prefix to supplier product references </ li> <li> Sales price calculation based on the highest purchase price </ li> <li> Creation and product update </ li> <li> The module uses triggers < / li> <li> Automatic and / or manual processing </ li> </ ul> </ p>
+
+stockcsvSetup=Configuring the CSV Stocks module
+stockcsvAbout=About the CSV Stocks module
+
+stockcsv=CSV Stocks
+
+# MENU
+TopMenustockcsv=CSV Stocks
+
+# PARAMETRES
+LabelMappingDoli=Dolibarr Mapping & Suppliers
+Suppliers=suppliers
+Warehouse=warehouses
+FolderFTP=FTP directory
+Category=Categories
+PrefRefSuppliers=Prefix Ref.
+TypePrice=Price type
+SoldSuppliers=Discount (%%)
+LabelMappingCategory=Category Mapping
+CategoryDolibarr=Dolibarr Categories
+MaskCSV=CSV mask
+CategoryPrestashop=Categories Prestashop
+
+add=Add
+update=Update
+
+VacancesPartenaires=Unavailability Partners
+WarehousePendingOrders=Warehouse of orders in progress
+TextHelpWarehousePendingOrders=Warehouse "fictitious" where are stored the quantities of the products of the orders in progress, for the decrementation of the stocks.
+UserRobot=User "Robot" for automatic processing
+UpdateProductSellPriceMinTo10=Replaces sales prices at 10 euros for products whose acaht price is:
+
+
+LabelTerms=List of Negative Terms in the Product Title
+Terms=Terms
+UploadTerms=Or import a list from a CSV file
+TermsAlreadyExcludes=Excluded terms
+TermsExist=This term has already been entered
+
+LabelEAN=List of products to exclude
+EAN=EAN
+UploadEAN=Or import a list from a CSV file
+
+LabelBddPrestashop=Prestashop database
+Server=Server
+Port=Harbor
+Login=Login
+Password=Password
+PrefixBdd=Base Prefix
+IdTransport=Carrier ID (Colissimo)
+
+LabelParamOthers=Various settings
+Coef="Margin sales price margin"
+StockTampon=Buffer stock
+DecremProduct=Automatic decrementation of non-ordered products
+PriceAchatLow=Purchase price minimum HT
+
+PlaceHolderFTP=/ Documents / ftp / stocks / Cahors /
+Add=Add
+Del=Remove
+PlaceHolderPrefix=CAHO {}
+PlaceHolderSoldSupplier=5
+PlaceHolderMask=ExtractArt_ {yyyymmdd}
+PlaceHolderCategoryPS=9
+PlaceHolderTerms=One argument per line
+PlaceHolderEAN=One EAN per line
+
+PlaceHolderCoef=2
+PlaceHolderST=2
+PlaceHolderPA=1
+
+SetupSaved=Your settings have been saved
+Error=Your settings have not been saved
+
+DownloadExempleExclude=Download sample files
+
+ErrorEAN=Automatically exclude products in processing errors
+NBDAYS=Number of days, in the absence of the CSV file, before deleting the products
+CSVnotPresent=Empty partner stocks beyond the number of days
+
+States=State of treatments
+Process=Manual processing
+
+See=See
+Delete=Remove
+
+States=States
+MajProducts=Number of products updated
+CreateProducts=Number of products created
+ErrorProducts=Number of products in error
+
+DateState=DATED
+ActionLog=ACTION
+
+TTC=TTC
+HT=HT
+
+
+
+#messagesHelpUsers
+TextHelpMappingSuppliers=Choose the provider
+TextHelpMappingWarehouse=Choose the supplier's warehouse
+TextHelpMappingFolderFTP=Choose the provider's CSV FTP directory
+TextHelpMappingMaskCSV=Indicate the mask of the CSV files of the supplier <br/> <b> Example: ExtractArt _ </ b> <br/> The continuation of the mask is composed of the date of the day in the form aaaammdd.csv
+TextHelpMappingCategory=Choose the supplier's product category
+TextHelpMappingPrefRefSuppliers=Indicate the prefix for the product references (purchase price) <br/> A hyphen will be added automatically last the prefix <br/> <b> Example: {CAHO} </ b>
+TextHelpMappingTypePrice=Choose the type of price (HT or TTC)
+TextHelpMappingSoldSuppliers=Indicate the supplier's discount
+TextHelpMappingTva=Indicate the VAT rate of the supplier
+
+TextHelpTerms=Word list in the product name. <br/> <b> Example: ASST, ASSORTMENT </ b>
+TextHelpEANS=List of EANS to exclude from treatment. <br/> <b> These are products not to be sold. </ B>
+
+
+#messagesErreurSuccess
+
+InsertMappingSuccess=The partner has been added successfully
+DuplicataInsertMapping=The partner already exists in the mapping
+RequiredFieldInsertMapping=Mapping field required
+
+DeletedMappingSuccess=Partner successfully deleted
+DeletedMappingFailed=The partner has not been deleted
+
+UpdateMappingSuccess=The partner has been successfully modified
+DuplicataUpdateMapping=The partner update failed
+WrongDateFieldUpdateUnavailable=Wrong date entry
+RequiredUpdateMappingField=Required mapping field
+
+UpdateUnavailableSuccess=Update of unavailability successfully completed
+DuplicataUpdateUnavailable=Duplication of unavailability
+RequiredUpdateUnavailableField=fields required to update the unavailability
+
+InsertUnavailableSuccess=Insertion of unavailability achieved successfully
+DuplicataInsertUnavailable=Failed to duplicate existing unavailability
+WrongDateFieldInsertUnavailable=Bad date of unavailability
+RequiredInsertUnavailableField=Camps required missing for unavailability
+
+
+DeletedUnavailableSuccess=Removal of unavailability achieved successfully
+DeletedUnavailableFailed=Removing Unavailability Not Performed
+
+ErrorRequestSql=SQL error
+TableUnavailableEmpty=Table unavailable empty
+TableMappingEmpty=Empty mapping table
+TableConstEmpty=Empty constants table
+
+#HolidaysPart
+
+DateStart=Start date
+DateEnd=End date
+Reason=Information
+TextHelpReason=<Ul> <li> Vacation </ li> <li> </ li> Inventory <li> ... </ li> </ ul>
+TextHelpCoef=<b> CAUTION </ b> <br/> By clicking on the save button, the selling price of all products will be updated.
+
+
+
+
+#ProcessPart
+
+supplierNbr=Supplier n °
+ChangmntDone=changes made
+CreateDone=creations made
+NoProduct=No product for partner no
+NoFic=No csv file found for the partner
+Unavailable=Unavailability of the partner
+LaunchAll=Start the treatment of all partners
+ConfirmLaunchAll=Do you confirm the launch of treatment for all partners?
+ValidateLaunchAll=Validation of the global launch
+
+page_name=CSV Stocks module settings
+
+suppliers=suppliers
+state=States
+pdt create=Product (s) created
+pdt update=Updated product (s)
+pdt error=Product (s) in error (s)
+timeProcess=Time of treatment
+durationProcess=Duration of treatment
+Done by=Made by
+
+TraitementManuel=Manual processing
+
+ProductCsvPropre=Produced in the "clean" csv:
+ProduitCreate=Product (s) that are created:
+ProduitError=Product (s) with an erroneous creation:
+ProduitSucces=Product (s) with a successful modification:
+
+MenuStockCSV=CSV Stocks
+
+UpdateConstantSuccess=Parameters saved successfully
+DuplicataUpdateConstant=Parameters already saved in the database
+RequiredUpdateConstantField=Missing Required Parameters
+DuplicataInsertEAN=EAN Duplication in Database
+
+DeletedTermSuccess=Excluded term deleted
+DeletedTermFailed=Failed to delete term
+
+#Email=
+MissingFile=Missing file
+ErrorProcessAuto=Automatic CSV Processing Incident -
+ErrorEANToday=Ean error of the day
+SupplierUnavailable=Partner Not Available
+Partner=Partner
+Stocks0Unavailable=in the unavailable period, stock reset to 0.
+StocksMissingToDay=stock reset.
+
+NoFileSupplier=No file for the provider
+NoFindCSV=No csv file found
+TotalProcessManuel=Total:
+getCSVMappingManuelSuccess=Processing of the completed partner.
+
+InsertTermSuccess=Successfully inserted term
+DuplicataInsertTerm=Duplication of the term
+RequiredInsertTerm=Required field for adding a term
